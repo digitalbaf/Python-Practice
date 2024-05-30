@@ -1,4 +1,6 @@
 menuHandout = "Flagellation\nSpanking\nSodomy"
+def calculation():
+    price * float(orderquantity)
 print("Hello, welcome to Hell")
 name = input("What is your name?\n")
 
@@ -31,15 +33,24 @@ if order == "Flagellation" or order == "Spanking" or order == "Sodomy":
     print("Ooooooh fine choice. How many " + order + " would you like?")
     price = 9.0
     orderquantity = input()
-    ordertotal = price * float(orderquantity)
-    print("Can do! The total for your order will be " + str(ordertotal))
+    try:
+        ordertotal = calculation()
+    except:
+        ordertotal = price * 8
+        print("Look, I can see you just want to be difficult so I'm just going to charge you for 8 " + order + "s.")
+    print("The total for your order will be " + str(ordertotal))
 else:
     price = 69.0
     print("Sounds good but you're straight up getting charged more money because you're picking a non-menu item and "
           "that is just not cool. How many " + order + " would you like?\n")
     orderquantity = input()
-    ordertotal = price * float(orderquantity)
-    print("Can do!  The total for your order will be " + str(ordertotal))
+    try:
+        ordertotal = calculation()
+    except:
+        ordertotal = price * 8
+        print("Look, I can see you just want to be difficult so I'm just going to charge you for 8 " + order + "s.")
+
+    print("The total for your order will be " + str(ordertotal))
 
 paymentmethod = input("Would you like to pay by cash or card?\n")
 
@@ -47,7 +58,7 @@ if paymentmethod == "card":
     print("So sorry but your " + paymentmethod + " was declined.  Fortunately for you, we are highly motivated to "
     "provide your " + order + " and today it's going to be on the house.\nPlease drop your pants and await further "
     "instruction")
-elif pa ymentmethod == "cash":
+elif paymentmethod == "cash":
     print("Right on but I'm not giving you any change so pony up, scum.  Please drop your pants and await further "
     "instruction")
 
